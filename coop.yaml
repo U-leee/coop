@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: coop
+  name: coop
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: coop
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: coop
+    spec:
+      containers:
+      - image: everyyy/coop:1
+        name: coop
+        ports:
+        - containerPort: 8000
+        resources: {}
+status: {}
