@@ -5,6 +5,10 @@ on:
     branches:
       - "main"
 
+# 전체 워크플로우에 대해 쓰기 권한 부여
+permissions:
+  contents: write  
+
 jobs:
   build:
     runs-on: ubuntu-latest
