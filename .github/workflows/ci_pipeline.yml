@@ -3,8 +3,6 @@ name: CI
 on:
   push:
     branches: [ "main" ]
-#  pull_request:
-#    branches: [ "main" ]
 
 jobs:
   build:
@@ -52,15 +50,11 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/coop:latest,${{ secrets.DOCKER_USERNAME }}/coop:${{ github.sha }}
-#          tags: ${{ secrets.REGISTRY_URL }}/coop:latest
-#          tags: everyyy/coop:${{ github.sha }}
 
       # 8. k8s 매니페스트 파일에서 이미지 업데이트
       - name: Update Kubernetes manifests
         run: |
           sed -i 's|image: .*|image: ${{ secrets.DOCKER_USERNAME }}/coop:${{ github.sha }}|' k8s/coop-deploy.yaml
-#          sed -i 's|image: .*|image: ${{ secrets.REGISTRY_URL }}/coop:latest|' k8s/deployment.yaml
-#          sed -i 's|image: .*|image: everyyy/coop:${{ github.sha }}|' k8s/deployment.yaml
 
       # 9. 변경된 매니페스트 파일 커밋,푸시
       - name: Commit and push changes
