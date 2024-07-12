@@ -55,6 +55,7 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/coop:latest,${{ secrets.DOCKER_USERNAME }}/coop:${{ github.sha }}
+          platforms: linux/arm64/v8
 
       # 8. k8s 매니페스트 파일에서 이미지 업데이트
       - name: Update Kubernetes manifests
