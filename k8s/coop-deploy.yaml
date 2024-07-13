@@ -23,5 +23,9 @@ spec:
         name: coop
         ports:
         - containerPort: 8000
-        resources: {}
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m
 status: {}
