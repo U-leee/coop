@@ -19,7 +19,7 @@ spec:
         app: coop
     spec:
       containers:
-      - image: everyyy/coop:ddf1983e446e0d36ee49abbb111e817eecd24695
+      - image: everyyy/coop:7a2dbf1f388a4ce78370c88e2f1c8e898b74b4ec
         name: coop
         ports:
         - containerPort: 8000
